@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+pantheon_state/
+pulse_log.txt
+*.tmp
