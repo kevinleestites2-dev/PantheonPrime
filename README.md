@@ -1,4 +1,4 @@
-# 🔱 PANTHEON SINGULARITY — v3.0.0
+# 🔱 SINGULARITY PRIME — v3.0.0
 
 **Sovereign AI — Headless · Autonomous · Self-Evolving**
 *"The Central Nervous System never sleeps."*
@@ -10,7 +10,7 @@
 | Layer | File | Role |
 |---|---|---|
 | **Pulse** | `pulse.py` | Legacy v2.0 heartbeat — GitHub Actions immortal loop |
-| **Singularity** | `pantheon_singularity.py` | v3.0 autonomous engine — 8 modes, DNA mutation, HyperLoops |
+| **Singularity** | `singularity_prime.py` | v3.0 autonomous engine — 8 modes, DNA mutation, HyperLoops |
 | **Blueprint** | `blueprint.md` | Architecture reference |
 
 ## The 8 Modes
@@ -58,19 +58,19 @@ INIT → SCAN → ANALYZE → ACT → REPORT → COMMIT → [MUTATE] → LOOP
 
 ```bash
 # Single mode, single cycle
-python pantheon_singularity.py --oracle "Investigate Camp Scott Volume 5"
+python singularity_prime.py --oracle "Investigate Camp Scott Volume 5"
 
 # Sentinel mode, 5 cycles, 60s interval
-python pantheon_singularity.py --sentinel --count 5 --interval 60
+python singularity_prime.py --sentinel --count 5 --interval 60
 
 # Forced mutation
-python pantheon_singularity.py --prime --mutate
+python singularity_prime.py --prime --mutate
 
 # Dream cycle (memory consolidation)
-python pantheon_singularity.py --nexus --dream
+python singularity_prime.py --nexus --dream
 
 # Full stack demo
-python pantheon_singularity.py --all
+python singularity_prime.py --all
 ```
 
 ## Environment Variables
