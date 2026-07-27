@@ -1,104 +1,95 @@
-# 🔱 PantheonPrime
+# 🔱 PANTHEON SINGULARITY — v3.0.0
 
-**The Central Nervous System of the Pantheon. v2.0.0**
+**Sovereign AI — Headless · Autonomous · Self-Evolving**
+*"The Central Nervous System never sleeps."*
 
-PantheonPrime is a Hybrid Sovereign Infrastructure — the immortal heart that keeps every Pantheon agent alive, connected, and evolving. It bridges persistent cloud orchestration (GitHub Actions) with high-performance mobile edge inference (Red Magic).
+---
 
-## 🏛️ Hybrid Architecture
+## Anatomy
 
-| Layer | Where | Role |
+| Layer | File | Role |
 |---|---|---|
-| **Pulse** | GitHub Actions | 24/7 immortal loop — state, evolution, fallback |
-| **Muscle** | Red Magic phone | High-speed local inference via llama.cpp |
-| **Nexus** | HTTP bridge | Connects Pulse ↔ Muscle |
-| **Memory** | Evolving-Memory + CrowdResearch | Knowledge streams from all primes |
-| **DNA** | Qwen3-1.7B + LoRA | Self-evolving model stack |
+| **Pulse** | `pulse.py` | Legacy v2.0 heartbeat — GitHub Actions immortal loop |
+| **Singularity** | `pantheon_singularity.py` | v3.0 autonomous engine — 8 modes, DNA mutation, HyperLoops |
+| **Blueprint** | `blueprint.md` | Architecture reference |
 
-## The Pulse Cycle
+## The 8 Modes
 
-Every pulse cycle (configurable, default every 5 minutes):
+| Mode | Flag | Purpose |
+|---|---|---|
+| **SENTINEL** | `--sentinel` | Stealth reconnaissance — passive intel gathering |
+| **ORACLE** | `--oracle` | Web investigation — cross-reference, verify, deep-dive |
+| **SHADOW** | `--shadow` | Autonomous tool orchestration — spawn subagents |
+| **GHOST** | `--ghost` | Entity resolution — track people, places, connections |
+| **NEXUS** | `--nexus` | Memory consolidation — dream cycle, connect the dots |
+| **FORGE** | `--forge` | Generate reports, artifacts, timelines |
+| **PRIME** | `--prime` | Self-evolution — mutate DNA, train new weights |
+| **VOID** | `--void` | Cleanup, garbage collection, reset |
+
+## DNA Mutation Engine
+
+Every mode run triggers a genetic tick. After 10 ticks, the genome mutates:
+
+```python
+GENES = {
+    "aggression":    0.5,  # 0=passive recon → 1=full strike
+    "curiosity":     0.5,  # 0=stay focused → 1=explore rabbit holes
+    "patience":      0.5,  # 0=move fast → 1=wait for evidence
+    "skepticism":    0.5,  # 0=trust sources → 1=verify everything
+    "creativity":    0.5,  # 0=literal → 1=connect distant dots
+}
+```
+
+Mutation: ±0.15 per tick, clamped [0.0, 1.0]. Every 10 ticks → forced mutation. Genome hash logged each cycle.
+
+## HyperLoop
+
+Each mode runs in HyperLoop — a self-reinforcing cycle:
 
 ```
-1. NEXUS   → Check Red Magic health
-2. MEMORY  → Process knowledge streams from all primes
-3. CONSOLIDATE → Distill traces into memory
-4. EVOLVE  → Check if any primes need attention (offline >24h = auto-issue)
-5. COMMIT  → Push state to GitHub
+INIT → SCAN → ANALYZE → ACT → REPORT → COMMIT → [MUTATE] → LOOP
 ```
 
-## The 13 Pieces
-
-1. `llama.cpp` — Runtime engine
-2. `Qwen3-1.7B` — Brain model
-3. `LoRA Adapter` — DNA imprint
-4. `TinyVector` — Memory store
-5. `MoE Router` — Routing brain
-6. `Inference Server` — API layer
-7. `GGUF Quantizer` — Compression
-8. `Evolving-Memory` — Sleep/dream cycle
-9. `AutoResearch-Mini` — Trainer
-10. `A-Evolve` — Evolution engine
-11. `AdaptiveHarness` — Adaptive evolution
-12. `CrowdResearch` — Shared knowledge
-13. `Game Space` — Sustained performance
+- `--count N` = N cycles, then exit
+- `--infinite` = run forever
+- `--interval N` = N seconds between cycles (default 300)
 
 ## Quick Start
 
 ```bash
-# Clone
-git clone https://github.com/kevinleestites2-dev/PantheonPrime.git
-cd PantheonPrime
+# Single mode, single cycle
+python pantheon_singularity.py --oracle "Investigate Camp Scott Volume 5"
 
-# Install
-pip install aiohttp
+# Sentinel mode, 5 cycles, 60s interval
+python pantheon_singularity.py --sentinel --count 5 --interval 60
 
-# Set environment
-export GITHUB_REPO=your-username/your-repo
-export GITHUB_TOKEN=your_token
-export NEXUS_URL=http://your-red-magic:8080    # optional
-export PULSE_INTERVAL=300                       # seconds
+# Forced mutation
+python pantheon_singularity.py --prime --mutate
 
-# Run the eternal pulse
-python pulse.py
+# Dream cycle (memory consolidation)
+python pantheon_singularity.py --nexus --dream
 
-# Or single cycle
-python pulse.py once
-
-# Status report
-python pulse.py status
-
-# List connected primes
-python pulse.py primes
-
-# Trigger dream consolidation
-python pulse.py dream
+# Full stack demo
+python pantheon_singularity.py --all
 ```
-
-## GitHub Actions
-
-The `.github/workflows/pulse.yml` workflow runs every 6 hours as backup. It:
-1. Runs `pulse.py`
-2. Commits state + dreams back to the repo
-3. Self-restarts via workflow dispatch
 
 ## Environment Variables
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `GITHUB_REPO` | For auto-commit | — | `user/repo` |
-| `GITHUB_TOKEN` | For auto-commit | — | PAT with repo scope |
-| `NEXUS_URL` | For muscle | — | Red Magic inference server |
-| `NEXUS_TOKEN` | Optional | — | Auth for Nexus |
+| `GITHUB_TOKEN` | For commits | — | PAT with repo scope |
+| `GITHUB_REPO` | For commits | — | `user/repo` |
 | `PULSE_INTERVAL` | No | `300` | Seconds between cycles |
-| `DREAM_INTERVAL` | No | `3600` | Seconds between dream consolidations |
+| `SINGULARITY_MODE` | No | `oracle` | Default mode on bare run |
 
-## Fail-Safe Protocol
+## Fail-Safe
 
-- If Red Magic is offline → Pulse handles everything via cloud fallback
-- If Pulse hits job limit → Self-restart via Actions API
-- State is NEVER stored only in RAM — every cycle commits to GitHub
+- Every cycle commits state to `pulse_log.txt` / `singularity_state.json`
+- If mode crashes → state saved before exit
+- If genome corrupts → regenerate from seed
+- If HyperLoop infinite → `--count N` caps it
 
 ---
 
-*Built for the Pantheon Project*  
-*"The Central Nervous System never sleeps."* 🔱
+*Built for the Pantheon Project*
+*🔱 "The Central Nervous System never sleeps."*
